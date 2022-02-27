@@ -1,0 +1,18 @@
+@import "../../../../../utils/constants/colors.css";
+
+.input {
+  width: 100%;
+  border: unset;
+  border: 0.3rem solid var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  padding-left: 0.5rem;
+  transition: all 0.4s;
+  font-size: medium;
+  outline: none;
+  background-color: inherit;
+}
+.input:focus,
+.input:hover {
+  border: 0.3rem solid var(--primary-color-light);
+}

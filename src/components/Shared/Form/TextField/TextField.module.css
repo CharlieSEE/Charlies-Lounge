@@ -1,0 +1,75 @@
+@import "../../../../utils/constants/colors.css";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  --border-light: 0.3rem solid var(--primary-color-light);
+  --border: 0.3rem solid var(--primary-color);
+  margin: 1rem;
+}
+.label {
+  font-weight: bold;
+  font-size: medium;
+  letter-spacing: 0.1rem;
+}
+.input {
+  border: unset;
+  border-right: var(--border-light);
+  border-top: var(--border-light);
+  border-bottom: var(--border-light);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 1rem;
+  padding-left: 0.5rem;
+  transition: all 0.4s;
+  font-size: medium;
+  outline: none;
+  background-color: inherit;
+}
+.label {
+  text-align: left;
+}
+.inputContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.icon {
+  font-size: medium;
+  border-left: var(--border-light);
+  border-top: var(--border-light);
+  border-bottom: var(--border-light);
+  border-radius: 0.5rem 0 0 0.5rem;
+  padding: 1rem;
+  order: 1;
+  transition: all 0.4s;
+}
+.input:focus,
+.input:hover,
+.inputContainer:hover > .input {
+  border-right: var(--border);
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+.inputContainer:hover > .icon,
+.input:focus ~ .icon {
+  border-left: var(--border);
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+.input:disabled {
+  border: 0.3rem solid rgb(56, 55, 55);
+  opacity: 0.5;
+}
+@keyframes errorFlash {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.errorMessage {
+  color: red;
+  font-weight: 600;
+  animation: errorFlash 1s linear 2 alternate;
+}

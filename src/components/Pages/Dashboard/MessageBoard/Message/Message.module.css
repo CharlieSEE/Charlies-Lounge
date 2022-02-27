@@ -1,0 +1,47 @@
+@import "../../../../../utils/constants/colors.css";
+
+.msgRight,
+.msgLeft {
+  max-width: 30vw;
+  margin: 1rem;
+}
+.msgRight {
+  justify-self: end;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+}
+.msgLeft {
+  justify-self: start;
+  display: grid;
+  grid-template-columns: auto 5fr;
+  grid-template-rows: 1fr auto 1fr;
+}
+.author {
+  grid-row: 1/2;
+}
+.author,
+.content,
+.time {
+  margin-left: 1rem;
+}
+.avatar {
+  grid-row: 1/4;
+  grid-column: 1/2;
+  justify-self: center;
+  max-height: 10vh;
+  width: 100%;
+}
+.content {
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  color: var(--primary-text-color);
+  padding: 0 1rem;
+}
+.content a,
+.content a:visited {
+  color: inherit;
+}
+.time {
+  grid-row: 3/4;
+  font-size: small;
+}

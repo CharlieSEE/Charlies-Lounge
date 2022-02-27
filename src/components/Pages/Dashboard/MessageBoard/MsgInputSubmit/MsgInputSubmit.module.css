@@ -1,0 +1,20 @@
+@import "../../../../../utils/constants/colors.css";
+
+.submit {
+  display: grid;
+  background-color: var(--primary-color);
+  outline: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: unset;
+  color: var(--primary-text-color);
+  transition: all 0.4s;
+  border: 0.3rem solid var(--primary-color-light);
+  font-size: x-large;
+  margin: 1rem;
+  border-radius: 50%;
+}
+.submit:hover {
+  border: 0.3rem solid var(--primary-color);
+  cursor: pointer;
+}
