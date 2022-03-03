@@ -1,0 +1,37 @@
+@import "../../../utils/constants/colors.css";
+
+.primary,
+.secondary {
+  padding: 1rem 4rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  outline: none;
+  border: 0.3rem solid var(--primary-color);
+  font-weight: 600;
+  font-size: larger;
+  letter-spacing: 0.1rem;
+  transition: all 0.4s;
+}
+.primary,
+.secondary {
+  cursor: pointer;
+}
+
+.primary {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+}
+
+.primary:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.secondary {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+.secondary:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-text-color);
+  background-color: var(--primary-color-dark);
+}
