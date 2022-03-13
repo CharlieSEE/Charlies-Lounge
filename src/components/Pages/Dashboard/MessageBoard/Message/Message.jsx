@@ -1,5 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import styles from "./Message.module.css";
 
 const Message = ({
@@ -18,6 +20,7 @@ const Message = ({
     );
     return `${time} | ${date}`;
   };
+
   return (
     <div key={keyProp} className={owner ? styles.msgRight : styles.msgLeft}>
       {!owner ? (
@@ -31,7 +34,28 @@ const Message = ({
       ) : null}
       <div className={styles.author}>{authorName}</div>
       <div className={styles.content}>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          children={content}
+          components={{
+            code({ node, inline, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || "");
+              return !inline && match ? (
+                <SyntaxHighlighter
+                  children={String(children).replace(/\n$/, "")}
+                  style={dracula}
+                  language={match[1]}
+                  PreTag="div"
+                  {...props}
+                />
+              ) : (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              );
+            },
+          }}
+        />
       </div>
       <div className={styles.time}>{transformTimestamp(created_at)}</div>
     </div>
