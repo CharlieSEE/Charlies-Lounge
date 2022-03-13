@@ -94,6 +94,7 @@ const MsgBoard = () => {
       </div>
       <form className={styles.msgInput} onSubmit={sendMessage}>
         <MsgInputField
+          spellCheck={true}
           placeholder="Type..."
           maxLength={255}
           value={currentMsg}
