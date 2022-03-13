@@ -6,10 +6,11 @@ const MsgInputField = ({
   maxLength,
   value,
   onChange,
+  spellCheck,
 }) => {
   return (
-    <input
-      type="text"
+    <textarea
+      spellCheck={spellCheck}
       placeholder={placeholder}
       required={required}
       maxLength={maxLength}

@@ -11,6 +11,7 @@
   font-size: medium;
   outline: none;
   background-color: inherit;
+  resize: none;
 }
 .input:focus,
 .input:hover {
