@@ -19,7 +19,7 @@ const MsgBoard = () => {
     e.preventDefault();
     const { error } = await supabase.from("messages").insert([
       {
-        content: currentMsg,
+        content: currentMsg.trim(),
         author_ID: supabase.auth.currentUser.id,
       },
     ]);
