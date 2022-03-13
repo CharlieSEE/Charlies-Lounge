@@ -1,3 +1,4 @@
+import { memo } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -62,4 +63,4 @@ const Message = ({
   );
 };
 
-export default Message;
+export default memo(Message);
