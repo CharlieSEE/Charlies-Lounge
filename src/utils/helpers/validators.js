@@ -21,4 +21,13 @@ const validatePassword = (password) => {
   return password.length > 6;
 };
 
-export { validateEmail, validatePassword };
+/**
+ * Function checking if username is at least 3 characters long
+ * @param {String} username String containing username
+ * @returns true if username is valid
+ */
+const validateUsername = (username) => {
+  return username.length > 3;
+};
+
+export { validateEmail, validatePassword, validateUsername };
