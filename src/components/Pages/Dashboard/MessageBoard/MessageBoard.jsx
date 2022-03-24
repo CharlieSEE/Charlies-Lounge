@@ -17,6 +17,7 @@ const MsgBoard = () => {
 
   const sendMessage = async (e) => {
     e.preventDefault();
+    if (currentMsg.length === 0) return;
     const { error } = await supabase.from("messages").insert([
       {
         content: currentMsg.trim(),
