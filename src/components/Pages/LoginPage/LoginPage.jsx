@@ -5,24 +5,48 @@ import { useNavigate } from "react-router-dom";
 import TextField from "../../Shared/Form/TextField/TextField";
 import Submit from "../../Shared/Form/Submit/Submit";
 
+import {
+  validateEmail,
+  validatePassword,
+} from "../../../utils/helpers/validators";
+
 import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const navigate = useNavigate();
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
 
+  const navigate = useNavigate();
   const supabase = useContext(SupabaseContext);
 
   const login = async (e) => {
     e.preventDefault();
+    if (!validateEmail(email)) {
+      setEmailError(true);
+      return;
+    } else {
+      setEmailError(false);
+    }
+    if (!validatePassword(password)) {
+      setPasswordError(true);
+      return;
+    } else {
+      setPasswordError(false);
+    }
     const { user, error } = await supabase.auth.signIn({
       email: email,
       password: password,
     });
-    if (error) console.error(`Status: ${error.status}, ${error.message}`);
+    if (error) {
+      setEmailError(true);
+      setPasswordError(true);
+      return;
+    }
     if (user) navigate("/dashboard");
   };
+
   return (
     <div className={styles.container}>
       <h2>Login</h2>
@@ -31,6 +55,8 @@ const LoginPage = () => {
           type="text"
           placeholder="Email"
           value={email}
+          error={emailError}
+          errorMessage="Wrong email"
           label="Email"
           htmlFor="login-email"
           onChange={(e) => {
@@ -41,6 +67,8 @@ const LoginPage = () => {
           type="password"
           placeholder="Password"
           value={password}
+          error={passwordError}
+          errorMessage="Wrong password"
           label="Password"
           htmlFor="login-password"
           onChange={(e) => {
