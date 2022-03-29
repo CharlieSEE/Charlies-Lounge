@@ -8,7 +8,6 @@ const Layout = () => {
         <Link to="/">Charlie's Lounge</Link>
       </header>
       <Outlet />
-      <footer className={styles.footer}>2020</footer>
     </div>
   );
 };
