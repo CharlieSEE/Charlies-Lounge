@@ -15,3 +15,12 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 800px) {
+  .wrapper{
+    width: 100vw;
+  }
+  .msgInput{
+    margin-left: 1rem;
+  }
+}
