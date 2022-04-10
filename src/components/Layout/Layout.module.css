@@ -1,5 +1,9 @@
 @import "../../utils/constants/colors.css";
 
+body {
+  background-color: var(--background-color);
+}
+
 .header {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
@@ -16,14 +20,5 @@
   background-color: var(--background-color);
   display: grid;
   height: 100vh;
-  grid-template-rows: 1fr 10fr 1fr;
-}
-.footer {
-  background-color: var(--primary-color);
-  color: var(--primary-text-color);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
+  grid-template-rows: 1fr 10fr;
 }
